@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+     <title>Document</title>
+     <style>
+         .deva {
+             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+             font-size: 20px;  /* Adjusted size */
+             font-style: italic;
+             padding: 20px;
+             text-decoration: blue overline;
+         }
+         .box1 {
+            display: flex;
+            flex-wrap: wrap;/* Allows items to move to the next row */
+            /*flex-grow: 1; */
+            justify-content:space-between; /* Ensures even spacing between boxes */
+            align-content: space-between; /* Ensures rows are spaced properly */
+            width: 430px;
+            border: 2px solid red;
+            border-radius: 33px;
+            padding: 20px;
+            perspective: 500px;
+            background-color: blanchedalmond;
+            /* Adds some spacing inside */
+        }
+        .box2, .box3, .box, .box4, .box6 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;  
+            width: 200px;  
+            border: 2px solid black; 
+            border-radius: 33px;
+            margin-bottom: 10px;
+            perspective: 1000px;
+            color: red;
+            background: white;
+            writing-mode: vertical-lr;
+    text-orientation: upright;
+    transition: transform 2s ease-in-out 0.1s;
+            /* Add transition for smooth animation */
+            animation: box 2s ease-in-out 1s 2;
+        }
+        .box2:hover{
+            transform: translateZ(20px);
+        }
+        @keyframes box{
+            from{
+                transform: rotateX(0deg);
+            }
+            to{
+                transform: rotateX(360deg);
+            }
+        }
+         .box2:active{
+            background-color:rgb(242, 118, 9);
+         }
+         .box5{
+            display: flex;
+            flex-wrap: wrap; /* Allows items to move to the next row */
+            justify-content:center; /* Ensures even spacing between boxes */
+            align-content:center; /* Ensures rows are spaced properly */
+            height: 100px;
+            width: 100px;
+            border: 2px solid red;
+            border-radius: 50%;
+            margin-left: 10px;
+         }
+         .box7{
+            display: flex;
+            flex-wrap: wrap; /* Allows items to move to the next row */
+            justify-content:center; /* Ensures even spacing between boxes */
+            align-content: center; /* Ensures rows are spaced properly */
+            height: 90px;
+            width: 90px;
+            border: 4px solid blue;
+            border-top-color: red;
+            border-radius: 50%;
+           animation: spin 2s linear 1s 5;
+         }
+    @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(deg);
+            }
+        }
+         body{
+            display: flex;
+         background: linear-gradient(45deg,#feda75,#f58529,#d6249f,#515bd4,#405de6);
+            }
+            .twitter{
+                color: blueviolet;
+                font-size: 100px;
+            }
+            .youtube{
+                color: red;
+                font-size: 100px;
+            }
+     </style>
+ </head>
+ <body>
+    <div class="box1">
+        <div class="box3">DEVA SINGH</div>
+        <div class="box2"></div>
+        <div class="box4">
+            <a  href="https://www.youtube.com/?feature=ytca" target="_main" class="youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="box">
+            <a class="twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="box6"></div>
+    </div>
+    <div class="box5">
+        <div class="box7"></div>
+    </div>
+</body>
+ </html>
+ 
+  

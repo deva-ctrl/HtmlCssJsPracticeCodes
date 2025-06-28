@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Filter with Shadow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <style>
+        /* Ensure full height and center content */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full screen height */
+            margin: 0;
+            background-color: white; /* Optional background */
+        }
+        /* Image styling */
+        .img {
+            width: 800px; /* Adjust size */
+            height: 600px;
+            filter: grayscale(10%) blur(6px); 
+             border-radius: 10px;
+            transition: filter 0.2s ease-in-out 0.02s;
+            transition: filter 0.3s ease-in-out;
+            /* Shadow effect */
+            /*box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);*/
+            filter: drop-shadow(0px 0px 0px yellow);
+        }
+        /* Hover effect to remove filter and enhance shadow */
+        .img:hover {
+           filter: grayscale(0%) blur(0px);
+           filter: drop-shadow(1px 1px 20px yellow);
+            /*box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+        }
+        .social-container {
+            margin: 20px 0;
+          }
+        .instagram{
+            height: 50px;
+            width: 50px;
+            border-radius: 15px;
+            border:  1px solid red;
+            background: linear-gradient(45deg, #feda75, #f58529, #d6249f, #515bd4, #405de6);
+            ;
+            display:inline-flex;
+         text-decoration: none;
+            font-size:33px;
+            color:white;
+          justify-content: center;
+          align-items: center;
+        }
+        .youtube{
+            height: 50px;
+            width: 50px;
+            border-radius: 15px;
+            border:  1px solid #ddd;
+            background: white;
+            ;
+            display: inline-flex;
+         text-decoration: none;
+            font-size:33px;
+            color:red;
+          justify-content: center;
+          align-items: center;
+        }
+        .twitter{
+            height: 50px;
+            width: 50px;
+            border-radius: 15px;
+            border:  1px solid #ddd;
+            display: inline-flex;
+            background:white;
+            color: blueviolet;
+            text-decoration: none;
+            font-size: 33px;
+          justify-content: center;
+          align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <img src="img.jpg" alt="Sample Image" class="img">
+    <!-- <img src="https://1000logos.net/wp-content/uploads/2017/02/Apple-Logosu.png" alt="Sample Image" class="img"> -->
+    <div class="social-container">
+        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/?feature=ytca" class="youtube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    <script src="D.js"></script>
+</body>
+</html>

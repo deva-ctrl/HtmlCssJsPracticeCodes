@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="input" placeholder="Type something..." style="width: 300px;" />
+  <p id="log"></p>
+  <script>
+    const log = document.getElementById('log');
+    const input = document.getElementById('input');
+
+    document.addEventListener('keydown', function (event) {
+      let combo = '';
+      if (event.ctrlKey) combo += 'Ctrl + ';
+      if (event.shiftKey) combo += 'Shift + ';
+      if (event.altKey) combo += 'Alt + ';
+      combo += event.key;
+
+      log.innerHTML = `Key Down: ${combo}`;
+
+      // Prevent default action for Ctrl + S (e.g., saving webpage)
+      if (event.ctrlKey && event.key === 's') {
+        event.preventDefault();
+        alert('You pressed Ctrl + S! Default save blocked.');
+      }
+    });
+
+    document.addEventListener('keyup', function (event) {
+      log.innerHTML = `Key Up: ${event.key}`;
+    });
+  </script>
+
+</body>
+
+</html>

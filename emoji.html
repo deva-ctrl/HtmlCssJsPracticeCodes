@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            font-size: 20px;
+            padding: 5px;
+        }
+        button {
+            font-size: 18px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        p {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Emoji Unicode Code Generator</h2>
+    <input type="text" id="emojiInput" placeholder="Enter an emoji" maxlength="10">
+    <button onclick="generateCode()">Get Unicode</button>
+    <p id="output"></p>
+
+    <script>
+        function generateCode() {
+            let emoji = document.getElementById('emojiInput').value.trim();
+            if (emoji) {
+                let codePoint = emoji.codePointAt(0).toString(16).toUpperCase().padStart(8, '0');
+                document.getElementById('output').textContent = `${emoji} → \U${codePoint}`;
+            } else {
+                document.getElementById('output').textContent = "Please enter an emoji!";
+            }
+        }
+    </script>
+</body>
+</html>

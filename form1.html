@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height:100vh;
+            background: white;
+        }
+        .container{
+            width: 400px;
+            max-width: 100%;
+            padding: 50px;
+    border-radius: 10px;
+    background-color:honeydew; 
+ box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+        }
+       button{
+        border-radius: 20px;
+    border: 2px solid gold;
+    background-color: #FF4B2B;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+       }
+        h1{
+            color: red;
+            padding: 5px;
+        }
+        input {
+            max-width: 100%;
+            height: 30px;
+            font-size: 16px;
+            background-color: transparent; /* Removes background */
+            border: none;
+            border-bottom: 2px solid #555; /* Underline effect */
+            outline: none; /* Removes default outline */
+            transition: border-bottom 0.3s ease-in-out,transform 0.3s ease-in-out ; /* Smooth transition */
+        }
+        
+        /* Change color when input is focused */
+        input:hover {
+            border-bottom: 2px solid #007bff; /* Highlight effect */
+            transform: translateY(-5px);
+        }
+        
+        .instagram{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 33px;
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            border-radius: 15px;
+            color: white;
+           
+            background: linear-gradient(45deg,#feda75,#f58529,#d6249f,#515bd4,#405de6); 
+            
+        }
+        a{
+            text-decoration: none;
+            color: red;
+        }@media screen and (max-width:340px){
+            a{
+                font-size: 12px;
+            }
+            p{
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form>
+                 <!-- <a href="#" class="instagram"><i class="fab fa-instagram"></i></a> -->
+                  <a href="#" class="instagram"><i class="fab fa-google"></i></a>
+                <h1>Login</h1>
+               
+                 <input type="name" name="name" id="name" placeholder="Enter your name"><br><br>
+                <input type="email" name="email" id="email" placeholder="Enter your email"><br><br>
+                <input type="passward" name="passward" id="passward" placeholder="Enter your passward"><br><br>
+                <p>Already have an account.<a href="#">SIGN UP</a></p>
+                <button class="SignIn" title="Daal De Yaar" onclick="alert('lund lele mera');">SIGN IN</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

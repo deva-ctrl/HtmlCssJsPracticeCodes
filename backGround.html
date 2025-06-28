@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Background</title>
+    <style>
+        body {
+            background: url('paper.jpg');
+           
+            background-position:center;
+            background-size: auto;
+            animation: move 10s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 50% 50%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

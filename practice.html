@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <style>
+       
+        body{
+            font-family: "Montserrat", sans-serif;
+            display: flex;
+            margin: 0px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+            /*background: linear-gradient(45deg, #feda75, #f58529, #d6249f, #515bd4, #405de6);*/
+            background: wheat;
+
+        }
+        .header .logo h1 {
+            color:blueviolet;
+            line-height: 80px;
+        }
+        .header .header-items a{
+            text-decoration: none;
+            font-size: 20px;
+            color:black;
+            padding: 7px 13px;
+            text-transform: uppercase;
+            border-radius: 5px;
+        }
+        a:hover{
+            background: white;
+            transition: all 0.5s;
+        }
+.header .buttons{
+    display: flex;
+    gap: 20px;
+}
+.header .buttons button{
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: antiquewhite;
+    cursor: pointer;
+    font-size: 1rem;
+}
+@media screen and (max-width: 768px) {
+    .header .logo h1{
+        text-align:center;
+        font-size: 15px;
+        
+    }
+
+    .header .header-items a{
+        flex-direction: row;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .header .buttons button{
+        flex-direction: row;
+        margin-top: 10px;
+        font-size: 0.8rem;
+        padding: 7px 20px;
+        font-size: 10px;
+    }
+}
+@media screen and (max-width: 490px){
+    .header .buttons{
+            margin: 2px;
+            display: flex;
+            gap: 5px;
+    }
+    .header{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    .header .logo h1{
+        display: flex;
+        margin-bottom:5px;
+        color: cornsilk;
+        font-size: 20px;
+    }
+    .header .header-items a{
+          padding: 7px;
+          font-size: 15px;
+           
+    }
+}
+    </style>
+ </head>
+ <body>
+    <nav class="header">
+        <div class="logo">
+            <h1>Deva Singh</h1>
+        </div>
+        <div class="header-items">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="buttons">
+            <button class="login">LogIn</button>
+            <button class="register">Register</button>
+        </div>
+
+    </nav>
+    <script>
+    console.log("DEVA SINGH");
+ </script>
+ </body>
+ 
+ </html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoList</title>
+    <style>
+        .dateInput {
+      width: 100px;
+      padding: 5px;
+      border: 1px solid #360707;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    .todo-grid {
+            display: grid;
+            grid-template-columns: 210px 170px 70px;
+
+        }
+    
+    </style>
+</head>
+<body>
+    <input placeholder="Add a new task" class="inputValue" type="text"
+    onkeydown="console.log(event.key);
+    if(event.key==='Enter'){
+        addTask();
+    }" style="
+        width: 200px;
+        padding: 5px;
+        border: 1px solid #360707;
+        border-radius: 5px;
+        margin-right: 10px;">
+
+        <input type="date" class="dateInput" />
+
+
+    <button class="Add" onclick="addTask()" style="width: 50px;
+        padding: 5px;
+        border: 1px solid #360707;
+        border-radius: 5px;
+        margin-right: 10px;
+        background-color: #f0e68c;
+        cursor: pointer;
+    ">Add</button>
+    <ul class="taskList todo-grid"></ul>
+
+    <script>
+        function addTask(){
+            const inputElement = document.querySelector('.inputValue');
+            const taskText = inputElement.value;
+            const dateElement = document.querySelector('.dateInput');
+            const taskDate = dateElement.value;
+
+            if(taskText!==""){
+                const li=document.createElement('li');
+                let formattedDate = '';
+            if (taskDate) {
+                const d = new Date(taskDate);
+                formattedDate = ` [Due: ${d.getDate().toString().padStart(2, '0')}-${(d.getMonth()+1).toString().padStart(2, '0')}-${d.getFullYear()}]`;
+            }
+                li.textContent=taskText + formattedDate;
+                document.body.appendChild(li);
+                inputElement.value=""; 
+                li.style.margin='5px';
+                li.style.padding='5px';
+                li.style.fontSize='20px';
+
+                
+
+        
+           const deleteButton=document.createElement('button');
+            deleteButton.textContent='Delete';
+            deleteButton.style.marginLeft='10px';
+            deleteButton.style.backgroundColor='antiquewhite';
+            deleteButton.style.border='none';
+            deleteButton.style.borderRadius='5px';
+            deleteButton.style.cursor='pointer';
+            deleteButton.style.padding='5px 10px';
+            deleteButton.style.color='red';
+            deleteButton.style.fontSize='14px';
+            deleteButton.onclick=function(){
+                li.remove();
+            };
+            li.appendChild(deleteButton);
+        }
+            else{
+                alert("Please enter a task");
+            }  
+        }
+    </script>
+</body>
+</html>

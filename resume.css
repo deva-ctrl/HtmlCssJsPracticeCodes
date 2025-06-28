@@ -1,0 +1,144 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+}
+
+h1, h2, h4 {
+    margin: 0;
+}
+
+/* Container Layout */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+/* Resume Builder Heading */
+.resume-builder h1 {
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Input Form Styles */
+.resume_container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.resume_container input,
+.resume_container textarea {
+    padding: 12px 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.resume_container input:focus,
+.resume_container textarea:focus {
+    outline: none;
+    border-color: #2980b9;
+}
+
+/* Button Style */
+button {
+    display: block;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    margin: 30px auto 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1f6391;
+}
+
+/* Credit and Tip */
+.credit, .tip {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    color: #7f8c8d;
+}
+
+.credit a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.credit a:hover {
+    text-decoration: underline;
+}
+
+/* Output Styles */
+.output_container {
+    display: none;
+    background-color: #ffffff;
+    padding: 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: #2d3436;
+}
+
+/* Resume Output Structure */
+.output .heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.output .heading h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+}
+
+.output .heading h4 {
+    font-size: 1.2rem;
+    color: #636e72;
+}
+
+.output .info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.output .left, .output .right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.output .box {
+    margin-bottom: 25px;
+}
+
+.output .box h2 {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.output .box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}

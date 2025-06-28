@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coinFlipGame</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+        }
+
+        .active {
+            background-color: green;
+            color: white;
+        }
+
+        .rounded {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <input type="text" onkeydown="console.log('Down:', event.key)" onkeyup="console.log('Up:', event.key)"> -->
+    <!-- <input type="text"
+       onkeydown="console.log('keydown:', event.key)"
+       onkeypress="console.log('keypress:', event.key)"
+       onkeyup="console.log('keyup:', event.key)"> -->
+
+
+
+    <button onclick="
+    playGame('heads')">Head</button>
+
+    <button onclick="
+    playGame('tails')" class="js">Tail</button>
+
+    <h3 class="result">Choose an option to play</h3>
+
+    <button class="js1" onclick="changeText() ">DEVA</button>
+
+    <p>Amazon Shipping Calculator</p>
+
+    <input placeholder="Cost of Product" class="inputValue" onkeydown="console.log(event.key);
+    if(event.key==='Enter'){
+        calculateCost();
+    }" type="number">
+    <button onclick="calculateCost()" id="calculateButton">Calculate</button>
+    <p class="totalPrice"></p>
+
+    <input placeholder="type something" class="js-inputValue" onkeyup="
+const inputElement=document.querySelector('.js-inputValue');
+document.querySelector('.js-message').innerHTML=inputElement.value;
+" type="text">
+
+    <p class="js-message"></p>
+
+    <input placeholder="type something..." id="text" onkeydown="console.log(event.key)
+if(event.key==='Enter'){
+speechSynthesis.speak(new SpeechSynthesisUtterance(document.getElementById('text').value))
+}" type="text">
+    <button
+        onclick="speechSynthesis.speak(new SpeechSynthesisUtterance(document.getElementById('text').value))">Speech</button>
+
+    <button class="myb">Click me</button>
+    <div class="text"></div>
+    <script>
+        function playGame(playerMove) {
+            const randomNumber = Math.random();
+            let computerMove = '';
+
+            if (randomNumber < 0.5) {
+                computerMove = 'heads';
+            } else {
+                computerMove = 'tails';
+            }
+
+            let result = '';
+            if (playerMove === computerMove) {
+                result = 'You Win! 🎉';
+            } else {
+                result = 'You Lose! 😢';
+            }
+
+            document.querySelector('.result').innerHTML = `You picked: ${playerMove}==>Computer picked: ${computerMove}==>
+            Result: ${result}`;
+        }
+
+        function calculateCost() {
+            const inputElement = document.querySelector('.inputValue');
+            let cost = Number(inputElement.value);
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+            document.querySelector('.totalPrice').innerHTML = `Total Price: $${cost}`;
+            const button = document.querySelector('#calculateButton');
+            button.classList.add('active', 'rounded');
+        }
+        //eventListener multiple times
+        const button = document.querySelector('.myb');
+        button.addEventListener('click', () => {
+            const div = document.createElement('div');
+            div.textContent = `Hello Deva`;
+            document.body.appendChild(div);
+        });
+
+        //eventListener once 
+        // const button = document.querySelector('.myb');
+        // button.addEventListener('click', () => {
+        //   document.querySelector('.text').innerHTML = `Hello Deva`;
+        //});
+
+
+
+        //DOM
+
+        /*  console.log(document.body);
+          console.log(document.body.innerHTML='DEVA');
+          console.log(document);
+           console.log(document.body.innerText);
+          console.log(document.body.textContent);
+          console.log(document.body.childNodes);
+          console.log(document.body.firstChild);
+          console.log(document.body.lastChild);
+          console.log(document.body.children);
+          console.log(document.body.firstElementChild);
+  
+         console.log(document.querySelector('button'));
+        console.log(document.querySelector('.js'));
+        console.log(document.querySelector('button').innerHTML='DEVA');*/
+        function changeText() {
+            document.querySelector('.js1').innerHTML = 'LERE LUND KE MC';
+        }
+        const div = Object.assign(document.createElement('div'), {
+            className: 'box',
+            textContent: 'Hello DOM!'
+        });
+        document.body.appendChild(div);
+
+
+    </script>
+</body>
+
+</html>

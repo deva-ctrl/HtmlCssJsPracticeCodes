@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Expense Tracker</title>
+    <link rel="stylesheet" href="ExpenseTracker.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Expense Tracker</h1>
+        <p>Stay on budget and manage your expenses efficiently.</p>
+    </header>
+
+    <main class="container">
+        <section class="left-panel">
+            <h2>Add Expense</h2>
+            <form id="expense-form">
+                <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <select id="currency" title="Select your currency">
+                        <option value="$">USD ($)</option>
+                        <option value="€">EUR (€)</option>
+                        <option value="£">GBP (£)</option>
+                        <option value="¥">JPY (¥)</option>
+                        <option value="₹">INR (₹)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="expense-name">Expense Name</label>
+                    <input type="text" id="expense-name" placeholder="E.g., Groceries, Rent" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="expense-amount">Amount</label>
+                    <input type="number" id="expense-amount" placeholder="Enter amount" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="expense-limit">Set Monthly Limit</label>
+                    <input type="number" id="expense-limit" placeholder="Set a monthly spending limit" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <button type="button" id="add-expense" class="button">Add Expense</button>
+            </form>
+
+            <h3>Expense Summary</h3>
+            <table id="expense-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Expense</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-list">
+                    <!-- Dynamically added expenses will appear here -->
+                </tbody>
+            </table>
+
+            <div class="total">
+                Total Expenses: <span id="total-amount">0.00</span>
+            </div>
+        </section>
+
+        <section class="right-panel">
+            <h2>Expense Breakdown</h2>
+            <div id="chart-container">
+                <canvas id="expense-chart"></canvas>
+                <canvas id="expense-bar-chart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let expenseList = [];
+        let totalAmount = 0;
+        let expenseLimit = 0; // Variable to store the expense limit
+        let pieChart;
+        let barChart;
+
+        const currencySelect = document.getElementById('currency');
+        const expenseNameInput = document.getElementById('expense-name');
+        const expenseAmountInput = document.getElementById('expense-amount');
+        const expenseLimitInput = document.getElementById('expense-limit');
+        const expenseDateInput = document.getElementById('date');
+        const addExpenseBtn = document.getElementById('add-expense');
+        const expenseTable = document.getElementById('expense-list');
+        const totalAmountEl = document.getElementById('total-amount');
+        // Add event listener for Add Expense button
+        addExpenseBtn.addEventListener('click', function () {
+            const expenseName = expenseNameInput.value.trim();
+            const expenseAmount = parseFloat(expenseAmountInput.value);
+            const limitAmount = parseFloat(expenseLimitInput.value);
+            const expenseDate = expenseDateInput.value;
+            const selectedCurrency = currencySelect.value; // Get selected currency
+
+            // Set expense limit if provided
+            if (!isNaN(limitAmount) && limitAmount > 0) {
+                expenseLimit = limitAmount;
+            }
+            if (expenseName && !isNaN(expenseAmount) && expenseAmount > 0 && expenseDate) {
+                totalAmount += expenseAmount;
+                // Add expense to the list
+                expenseList.push({ name: expenseName, amount: expenseAmount, date: expenseDate });
+                renderExpenseList(selectedCurrency);
+                renderCharts(selectedCurrency);
+
+                // Reset input fields
+                expenseNameInput.value = '';
+                expenseAmountInput.value = '';
+                expenseDateInput.value = '';
+
+                // Check if total exceeds limit
+                if (expenseLimit > 0 && totalAmount > expenseLimit) {
+                    alert(`Warning: Total expenses exceeded the limit of ${selectedCurrency}${expenseLimit.toFixed(2)}`);
+                }
+            }
+        });
+
+        // Render expense list
+        function renderExpenseList(selectedCurrency) {
+            expenseTable.innerHTML = '';
+            expenseList.forEach((expense, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${expense.name}</td>
+                    <td>${selectedCurrency}${expense.amount.toFixed(2)}</td>
+                    <td>${expense.date}</td>
+                    <td><button class="delete-btn" onclick="deleteExpense(${index})">Delete</button></td>
+                `;
+                expenseTable.appendChild(row);
+            });
+            totalAmountEl.innerText = `${selectedCurrency}${totalAmount.toFixed(2)}`;
+        }
+        // Delete expense
+        function deleteExpense(index) {
+            totalAmount -= expenseList[index].amount;
+            expenseList.splice(index, 1);
+            renderExpenseList(currencySelect.value);
+            renderCharts(currencySelect.value);
+        }
+        // Render charts
+        function renderCharts(selectedCurrency) {
+            const expenseNames = expenseList.map(exp => exp.name);
+            const expenseAmounts = expenseList.map(exp => exp.amount);
+            // Pie chart
+            const ctxPie = document.getElementById('expense-chart').getContext('2d');
+            if (pieChart) {
+                pieChart.destroy(); // Destroy previous chart instance if exists
+            }
+            pieChart = new Chart(ctxPie, {
+                type: 'pie',
+                data: {
+                    labels: expenseNames,
+                    datasets: [{
+                        data: expenseAmounts,
+                        backgroundColor: [
+                            '#FF5733', // Bright orange
+                            '#33FF57', // Bright green
+                            '#3357FF', // Bright blue
+                            '#FF33A1', // Bright pink
+                            '#FFC133'  // Bright yellow-orange
+                        ],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Expense Distribution'
+                        }
+                    }
+                }
+            });
+
+            // Bar chart
+            const ctxBar = document.getElementById('expense-bar-chart').getContext('2d');
+            if (barChart) {
+                barChart.destroy(); // Destroy previous chart instance if exists
+            }
+            barChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: expenseNames,
+                    datasets: [{
+                        label: 'Amount',
+                        data: expenseAmounts,
+                        backgroundColor:['#FF7F50', // Coral
+                '#87CEEB', // Sky Blue
+                '#6A5ACD', // Slate Blue
+                '#32CD32', // Lime Green
+                '#FFD700' ] 
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        title: {
+                            display: true,
+                            text: 'Expense Amounts'
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoLwithArray-and-lpps</title>
+
+    <style>
+        .todo-grid {
+            display: grid;
+            grid-template-columns: 210px 170px 70px;
+
+        }
+
+        .taskList {
+
+            row-gap: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <input placeholder="Add a new task" class="inputValue" type="text" style="
+        width: 180px;
+        padding: 5px;
+        border: 1px solid #360707;
+        border-radius: 0px;
+        margin-right: 10px;
+        cursor: pointer;" onkeydown="console.log(event.key);
+        if(event.key==='Enter'){
+            addTask();
+        }">
+
+    <input type="date" class="js-date" style=" width: 140px;
+        padding: 5px;
+        border: 1px solid #360707;
+        border-radius: 0px;
+        margin-right: 10px;
+        cursor: pointer;"">
+
+    <button class=" add" onclick="addTask()" style="
+    width: 100px;
+        padding: 5px;
+        border: none;
+        border-radius: 0px;
+        margin-left: 10px;
+        background-color: #f0e68c;
+    cursor:pointer;">ADD</button>
+
+    <div class="taskList todo-grid"></div>
+
+    <script>
+        const todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+        function renderTodoList() {
+            let todoListHTML = '';
+            for (let i = 0; i < todoList.length; i++) {
+                const todoObject = todoList[i];
+                const { name } = todoObject;
+                const { due_date } = todoObject;
+                const html = `<div>${name}</div> 
+                <div>${due_date}</div>
+                <button onclick=" deleteTask(${i});" style=" width: 100px;
+        padding: 5px;
+        border: none;
+                border-radius: 0px;
+        margin-right: 10px;
+        background-color:#f0e68c">Delete</button>`;
+                todoListHTML += html;
+            }
+            document.querySelector('.taskList').innerHTML = todoListHTML;
+        }
+        renderTodoList();
+        saveToLocalStorage();
+        function addTask() {
+            const inputElement = document.querySelector('.inputValue');
+            const taskText = inputElement.value;
+            const dateInputElement = document.querySelector('.js-date');
+            const dateInput = dateInputElement.value;
+            todoList.push({
+                name: taskText,
+                due_date: dateInput
+            });
+            console.log(todoList);
+            inputElement.value = '';
+
+            renderTodoList();
+            saveToLocalStorage();
+        }
+        function saveToLocalStorage() {
+            localStorage.setItem('todoList', JSON.stringify(todoList));
+        }
+        function deleteTask(index) {
+            todoList.splice(index, 1);         // Remove item from array
+            saveToLocalStorage();              // Update localStorage
+            renderTodoList();                  // Re-render UI
+        }
+    </script>
+</body>
+
+</html>

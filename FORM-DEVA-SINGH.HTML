@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+    <title>Sample Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <style>
+       
+        .social{
+            display:flex; /* Ensures flexibility for width/height */
+            justify-content: center; /* Centers the icon horizontally */
+            align-items: center; /* Centers the icon vertically */
+            width: 50px; /* Set your desired width */
+            height: 50px; /* Set your desired height */
+            background:white; /* Example background for better visualization */
+            color: blueviolet; /* Icon color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 15px;
+            border: 1px solid #ddd; /* Make it circular */
+            font-size: 30px;
+
+        }
+    </style>
+    </head>
+<body>
+<form action="/submit_form" method="post">
+    <fieldset>
+    <legend>
+        <b style="color:red">Student personal information</b>
+    </legend>
+    <div class="div">
+        <a href="https://translate.google.co.in/?hl=hi" class="social" ><i class="fab fa-facebook"></i></a><br><br>
+    <label for="name"> Student Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Student Name"><br><br>
+    
+    
+    <label for="email"> Student Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" placeholder="Chal bkl apna message daal yaha"></textarea><br><br>
+
+
+    <label for="gender">Gender : </label><br>
+    <label for="male">Male</label>
+    <input type="radio" id="male" , name="gender">
+
+
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender"><br><br>
+
+    <label for="contact number">Contact number :</label><br>
+    <input type="digit" id="contact number" name="digit"><br><br>
+
+    <label for="search">Search :</label><br>
+    <input type="search" id="search" name="query"><br><br>
+    
+
+    <label for="date">Select Date</label><br>
+    <input type="date" id="date" name="date"><br><br>
+
+    <label for="time">Select Time</label><br>
+    <input type="time" id="time" name="time"><br><br>
+
+    <label><b>Your Fav. Subject</b></label><br>
+    <label for="math">Math</label>
+    <input type="checkbox" id="math" name="math">
+
+    <label for="physics">Physics</label>
+    <input type="checkbox" id="physics" name="physics">
+
+    <label for="chemistry">Chemistry</label>
+    <input type="checkbox" id="chemistry" name="chemistry">
+
+    <label for="hindi">Hindi</label>
+    <input type="checkbox" id="hindi" name="hindi"><br><br>
+
+    <iframe width="560" height="300" src="https://www.youtube.com/embed/7ODrsDrl3qk?si=jSfkMEqQVPyzloS3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+
+    <iframe  height="300" width="560" src="https://en.wikipedia.org/wiki/India"></iframe><br><br>
+
+      <select name="city" id="city">
+         <option value="Select contry">Select contry</option>
+        <option value="losangeles">Los Angeles</option>
+        <option value="chicago">Chicago</option>
+      </select><br><br>
+      <button>HI MISS</button><br><br> 
+      <h1 id="heading1">This text will be navy (inherited from body)</h1>
+    <p>This paragraph will be green.</p>
+    <p>This is another paragraph with a <span>red semi-transparent span</span> inside.</p>
+    
+<input type="submit" value="Submit"><br>
+    </div>
+</fieldset>
+</form>
+</body>  
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Inline Height and Width</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .social {
+            display: inline-flex; /* Ensures flexibility for width/height */
+            justify-content: center; /* Centers the icon horizontally */
+            align-items: center; /* Centers the icon vertically */
+            width: 50px; /* Set your desired width */
+            height: 50px; /* Set your desired height */
+            background-color: #1877F2; /* Example background for better visualization */
+            color: white; /* Icon color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 50%; /* Make it circular */
+        }
+
+        .social:hover {
+            background-color: #0056b3; /* Hover effect */
+        }
+
+        .social i {
+            font-size: 24px; /* Change the icon size */
+        }
+    </style>
+</head>
+<body>
+    <a href="https://translate.google.co.in/?hl=hi" class="social">
+        <i class="fab fa-facebook"></i>
+    </a>
+</body>
+</html> -->
+

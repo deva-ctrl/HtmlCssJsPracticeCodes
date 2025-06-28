@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Quantity</title>
+</head>
+<body>
+    <h2>Cart Quantity: <span id="cart-value">0</span></h2><br><br>
+
+    <button onclick="showCartQuantity()">Show Cart Quantity</button><br><br>
+
+    <button onclick="updateCart(1)">Add to cart</button><br><br>
+
+    <button onclick="updateCart(2)">+2</button><br><br>
+
+    <button onclick="updateCart(3)">+3</button><br><br>
+
+    <button onclick="resetCart()">Reset Cart</button><br>
+    <script>
+        let cartQuantity = 0;
+
+        function showCartQuantity() {
+            document.getElementById("cart-value").innerText = cartQuantity;
+        }
+
+        function updateCart(amount) {
+            cartQuantity += amount;
+            showCartQuantity(); // Update the displayed cart quantity
+        }
+
+        function resetCart() {
+            cartQuantity = 0;
+            showCartQuantity(); // Update the displayed cart quantity
+        }
+    </script>
+</body>
+</html>

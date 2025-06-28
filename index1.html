@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        /*body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }*/
+        .container{
+                 border: 2px solid red;
+                 /*display: grid;
+                grid-template-columns: 100px 100px;
+                grid-template-rows: 100px 100px 100px 100px;
+               
+               /*justify-content: center;
+               align-items: center;*/
+               display: grid;
+               grid-template-areas: "nav nav nav "
+                          "side article article "
+                          "footer footer footer ";
+                          
+               
+               /*row-gap: 10px;
+               column-gap: 10px;*/
+                
+        }
+        .box{
+             
+             height: 100px;
+             
+             
+
+        }
+        .box3{
+              grid-area: article;
+              background-color: lightblue;
+        }
+        .box4{
+            grid-area: footer;
+            background-color: antiquewhite;
+      }
+      .box1{
+        grid-area: nav;
+        background-color: lightpink;
+  }
+  .box2{
+    grid-area: side;
+    background-color: bisque;
+}
+.box5,.box6,.box7{
+    background-color: lightskyblue;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+        <div class="box box6">box6</div>
+        <div class="box box7">box7</div>
+        <!-- <div class="box box1">box8</div> -->
+    </div>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+                 border: 2px solid red;
+                 display: grid;
+                grid-template-columns: 100px 100px;
+                grid-template-rows: 100px 100px ;
+                width: 210px;
+               justify-content: center;
+               align-items: center;
+              
+               border-radius: 10px;
+               padding: 10px 10px;
+               row-gap: 10px;
+               column-gap: 10px;
+                
+        }
+        .box{
+             border: 2px solid black;
+             height: 100px;
+             /*margin-left: 25px;*/
+             border-radius: 5px;
+             
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div> -->
+        <!-- <div class="box box5">box5</div>
+        <div class="box box6">box6</div>
+        <div class="box box7">box7</div>
+        <div class="box box1">box8</div> -->
+    <!-- </div>
+</body>
+</html> -->
