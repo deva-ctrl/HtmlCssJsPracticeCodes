@@ -96,14 +96,13 @@ a:hover {
     height: 100vh;
     background-image: url("img.jpg");
     background-size: cover;
-    top: 80px;
     top: 100%;
-    text-align: center;
     transition: all .5s;
   }
 
   nav ul li {
-    display: block;
+    display:flex;
+    justify-content: center;
     margin: 50px 0;
     line-height: 30px;
   }
