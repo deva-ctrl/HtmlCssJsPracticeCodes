@@ -19,19 +19,21 @@
         .img {
             width: 800px; /* Adjust size */
             height: 600px;
-            filter: grayscale(10%) blur(6px); 
+            /*filter: grayscale(10%) blur(6px);*/ 
              border-radius: 10px;
-            transition: filter 0.2s ease-in-out 0.02s;
-            transition: filter 0.3s ease-in-out;
+            /*transition: filter 0.2s ease-in-out 0.02s;*/
+            transition: filter 1s ease-in-out;
+            transition: transform 0.3s ease-in-out;
             /* Shadow effect */
             /*box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);*/
             filter: drop-shadow(0px 0px 0px yellow);
         }
         /* Hover effect to remove filter and enhance shadow */
         .img:hover {
-           filter: grayscale(0%) blur(0px);
-           filter: drop-shadow(1px 1px 20px yellow);
+           /*filter: grayscale(0%) blur(0px);*/
+           filter: drop-shadow(1px 1px 40px yellow);
             /*box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+            /*transform:rotateZ(180deg);*/
         }
         .social-container {
             margin: 20px 0;
