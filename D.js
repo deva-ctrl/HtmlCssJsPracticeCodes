@@ -276,6 +276,20 @@
 // }
 // console.log(countWords(['apple', 'grape', 'deva', 'apple']));
 
+// function countWords(words){
+//     const result={}
+//     for(let i=0;i<words.length;i++){
+//         const word=words[i];
+//         if(result[word]){
+//             result[word]+='deva';
+//         }else{
+//             result[word]=1;
+//         }
+//     }
+//     return result;
+// }
+// console.log(countWords(['apple', 'grape',  'apple']));
+
 //copy the array
 
 // const array1=[1,2,3,4,5];
@@ -393,13 +407,277 @@
 // }
 // console.log(removeEgg(['egg','egg','apple','banana','cherry','egg']));
 
+// function reverseStr(str){
+//     return str.split("").reverse().join("");
+// }
+// console.log(reverseStr("deva singh"));
+
+// const one='a';
+// const obj={
+//     ['one']:'b',
+//     [one]:'c'
+// };
+// console.log(obj.one);
+// console.log(obj);
+// console.log(obj[one]);
 
 
 
+// const user = {
+//   Name: "Deva",
+// };
+// console.log(Object.hasOwn(user, "Name")); // true
+// console.log(Object.hasOwn(user, "toString")); // false
+// console.log(user['toString']);
+
+
+// const users = {
+//   frontendmaster: {},
+//   rahul: {}
+// };
+
+// let name = 'rahul';
+
+// if (users[name]) {
+//   console.log('BOSS');
+// } else {
+//   console.log('GUEST');
+// }
+
+// const users = {
+//   frontendmaster: {},
+//   rahul: {}
+// };
+
+// let name1 = 'constructor';
+
+// if (users[name1]) {
+//   console.log('BOSS');
+// } else {
+//   console.log('GUEST');
+// }
+
+// var foo = 'a';
+// function showName() {
+//   foo = 'b';
+//   return;
+//   function foo() { }
+// }
+// showName();
+// console.log(foo);
+
+
+//the above code looks like this in correct way
+// var foo = 'a';
+// function showName() {
+//   function foo() { }
+//   foo = 'b';
+//   return;
+// }
+// showName();
+// console.log(foo);
+
+//callback
+
+// function greet(name,callback){
+//     console.log(`Hello, ${name}!`);
+//     if(callback){
+//         callback();
+//     }
+// };
+// function sayName(){
+//   console.log("My name is Deva Singh.");
+// };
+// greet("Sir", ()=>{
+//     sayName();
+// });
+
+//another way.
+
+// function sayName(){
+//   console.log("My name is Deva Singh.");
+// };
+// callback=()=>{
+//   sayName();
+// }
+// callback();
+
+// callback=sayName;
+// callback();
+
+// console.log("Start");
+
+// setTimeout(() => {
+//     console.log("User logged in");
+
+//     setTimeout(() => {
+//         console.log("Fetched user profile");
+
+//         setTimeout(() => {
+//             console.log("Fetched user posts");
+
+//             setTimeout(() => {
+//                 console.log("Displayed user dashboard");
+//             }, 1000);
+
+//         }, 1000);
+
+//     }, 1000);
+
+// }, 1000);
+
+// //callback hell
+// function getData(data, getNextData) {
+//     setTimeout(() => {
+//         console.log(`Data received: ${data}`);
+//         if (getNextData) {
+//             getNextData();
+//         };
+//     }, 2000);
+// }
+// getData("User Data", () => {
+//     getData("User Profile", () => {
+//         getData("User Posts", () => {
+//             getData("User Dashboard");
+//         });
+//     });
+// });
+
+
+// console.log("1");
+
+// // Function returns a promise
+// function fetchData() {
+//     return new Promise((resolve, reject) => {
+//         console.log("Fetching data...");
+//         setTimeout(() => {
+//             resolve("Data received!");
+//         }, 2000);
+//     });
+// }
+
+// // Use the promise
+// fetchData().then(data => {
+//     console.log(data);
+// });
+
+
+// function fatchData() {
+//     return new Promise((resolve, reject) => {
+//         console.log("Fetching data...");
+//         setTimeout(() => {
+//             console.log("Data recieved!");
+//             resolve("Deva singh , PH.no 999061388");
+//         }, 3000);
+//     });
+// }
+// fatchData().then((data) => {
+//     console.log(data);
+// })
+
+// function fatchData() {
+//     return new Promise((resolve, reject) => {
+//         // console.log("Fetching data...");
+//         setTimeout(() => {
+//             console.log("Data recieved!");
+//             reject("network error");
+//         }, 3000);
+//     });
+// }
+// fatchData().then((data) => {
+//     console.log(data);
+// })
+// fatchData().catch((err)=>{
+//     console.log("rejected : ", err);
+// })
+
+//promise chaining.
+// function fatchData1() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data1");
+//             resolve("Success");
+//         }, 3000);
+//     });
+// }
+
+// function fatchData2() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             console.log("data2");
+//             resolve("Success");
+//         }, 3000);
+//     });
+// }
+
+// let p1 = fatchData1();
+// console.log("fatching data1.....");
+// p1.then((res) => {
+//     console.log("fatching data2.....");
+//     let p2 = fatchData2();
+//     p2.then(() => { });
+// })
 
 
 
+// Step 1: Define an async function
+// async function fetchUserData() {
+//   try {
+//     // Step 2: Make an HTTP request and wait for the response
+//     const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
 
+//     // Step 3: Check if the response is OK
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch user');
+//     }
+
+//     // Step 4: Parse JSON from the response
+//     const user = await response.json();
+
+//     // Step 5: Use the data
+//     console.log("User data:", user);
+//   } catch (error) {
+//     // Step 6: Handle any errors
+//     console.error("Error fetching user:", error.message);
+//   }
+// }
+
+// // Step 7: Call the function
+// fetchUserData();
+
+
+
+// async function fetchUser() {
+//     try {
+//         const response = await fetch('https://mocki.io/v1/d54bfbd6-9a66-4877-922a-7a8dca18ca98');
+//         if (!response.ok) {
+//             throw new Error("failed to fetch user");
+//         }
+//         const user = await response.json();
+//         console.log("User Data ; ", user);
+//     } catch (error) {
+//         console.error("Error in fetching : ", error.message);
+//     }
+// }
+// fetchUser();
+
+async function fetchData(){
+    try{
+        const response = await fetch('https://supersimplebackend.dev');
+        if(!response.ok){
+            throw new Error(`HTTP Error! , status : ${response.status}`);
+        }
+        const data = await response.json();
+        console.log(data);
+    }catch(error){
+        console.error('Error fetching data:', error);
+    }
+};
+fetchData();
+
+
+const msg = encodeURIComponent("Tarun please meri maar le bhai.");
+console.log(`https://wa.me/9721996635?text=${msg}`);
 
 
 

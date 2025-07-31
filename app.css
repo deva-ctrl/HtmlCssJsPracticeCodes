@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f9fa;
+    
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+/* h1 {
+    text-align: center;
+    font-family: "Playwrite AU QLD", cursive;
+    font-size: 3em;
+    background:url(back.jpg);
+    background-size: 100px;
+    width: 100vw;
+    color:transparent;
+    animation: animate 4s linear infinite;
+    background-clip: text;
+}
+
+@keyframes animate{
+    to{
+        background-position-x: 200px;
+    }
+} */
+.cut {
+    text-align: center;
+    font-family: "Playwrite AU QLD", cursive;
+    font-size: 3em;
+    background: #fdf4eb;
+    width: 100vw;
+    filter: drop-shadow(1px 1px 20px rgb(254, 215, 215));
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.nextCut {
+    margin: 0px 100px;
+    margin-bottom: 20px;
+}
+
+.p {
+    text-align: center;
+    font-family: "Playwrite AU QLD", cursive;
+    font-size: 1.3em;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    color: #555555;
+}
+
+.p1 {
+    text-align: center;
+    font-family: "Playwrite AU QLD", cursive;
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #6c6b6b;
+}
+
+.p2 {
+    text-align: center;
+    font-family: "Playwrite AU QLD", cursive;
+    font-size: 1.1em;
+    color: #6c6b6b;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.customer {
+    height: 340px;
+    width: 320px;
+    margin-right: 10px;
+    border-radius: 8px;
+    background: rgb(250, 243, 243);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.barber {
+    height: 340px;
+    width: 320px;
+    margin-left: 20px;
+    border-radius: 8px;
+    background:  rgb(250, 243, 243);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px;
+    color: #3081eb;
+    height: 70px;
+    width: 70px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: #83ecf6;
+    filter: drop-shadow(1px 1px 20px rgb(133, 222, 246));
+}
+
+.user i {
+    margin-top: 15px;
+}
+
+.user1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 35px;
+    color: #3081eb;
+    height: 70px;
+    width: 70px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: #83ecf6;
+    filter: drop-shadow(1px 1px 20px rgb(133, 222, 246));
+}
+
+.user1 i {
+    margin-top: 15px;
+}
+
+.customer-main {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.7em;
+    margin-top: 10px;
+    font-weight: bolder;
+    color: #000000;
+}
+
+.customer-text {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.1em;
+    margin: 10px 20px 20px 20px;
+
+    color: #6c6b6b;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 20px 20px 20px;
+}
+
+li {
+    margin: 10px 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.1em;
+    color: #6c6b6b;
+}
+
+li i {
+    color: #eba630;
+    margin-right: 10px;
+}
+
+.customer:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    background: #f9e9ca;
+    border: 1px solid #d1e7fd;
+    cursor: pointer;
+
+}
+
+.barber:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    background: #f9e9ca;
+    border: 1px solid #d1e7fd;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    body {
+    background-image: url('back.jpg');
+    background-size: 700px;
+    background-attachment: fixed;
+    animation: animate 900s linear infinite;
+}
+
+@keyframes animate{
+    to{
+        background-position-x: 10000px;
+    }
+} 
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .customer,
+    .barber {
+        width: 95vw;
+        margin: 10px 0;
+    }
+
+    .cut {
+        font-size: 2em;
+        color: #f6ebeb;
+        background: #3d3030;
+        text-shadow: 2px 2px 5px rgba(239, 232, 232, 0.5);
+    }
+
+    .p,
+    .p1,
+    .p2 {
+        font-size: 1.1em;
+        margin: 10px 20px;
+        color: #ffffff;
+    }
+
+    .p {
+        margin-bottom: 30px;
+    }
+
+    .customer-main {
+        font-size: 1.2em;
+        font-family:"Playwrite AU QLD", cursive;
+    }
+
+    .customer-text,
+    li {
+        font-size: 0.9em;
+        font-family:"Playwrite AU QLD", cursive;
+    }
+
+
+    .user,
+    .user1 {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .user i,
+    .user1 i {
+        margin-top: 12px;
+    }
+
+    .nextCut {
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+.footer {
+    background-color: #c8c3c3;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+
+.footer-text {
+    font-family: 'Arial', sans-serif;
+    color: #555555;
+    font-size: 1em;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.social {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 23px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%,
+            #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.linkedin {
+    background-color: #0077b5;
+}
+
+
+.footer-text {
+    transition: color 0.3s ease;
+}
+
+.footer-text:hover {
+    color: #ff1900;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.registration-main {
+    margin-top: 10px;
+}
+
+.registration {
+    height: 290px;
+    width: 670px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background:  rgb(250, 243, 243);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.registration:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    background: #f9e9ca;
+    border: 1px solid #d1e7fd;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .registration {
+        width: 95vw;
+        margin: 10px 0;
+    }
+
+}

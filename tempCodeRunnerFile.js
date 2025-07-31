@@ -1,1 +1,2 @@
-console.log(delete array[2]); 
+clearInterval(repeat);
+// console.log("Interval cleared");

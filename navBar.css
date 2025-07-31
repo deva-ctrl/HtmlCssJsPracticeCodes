@@ -11,19 +11,25 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  background-image: url(rock.jpg);
+  background-size: cover;
 }
 
-nav {
-  background: rgb(245, 231, 204);
+nav { 
   height: 80px;
   width: 100%;
+  background: transparent;
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255,255,255,0.18);
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px rgba(227,228,237,0.37);
+
 }
 
 label.logo {
   color: black;
   font-size: 25px;
   line-height: 80px;
-  padding: 0 100px;
   font-weight: bold;
 }
 
@@ -79,7 +85,7 @@ a:hover {
 /* Responsive media query code for small screen */
 @media (max-width: 890px) {
   #check:checked~ul {
-    top: 10%;
+    top: 100%;
   }
 
   .checkbtn {
@@ -96,7 +102,7 @@ a:hover {
     height: 100vh;
     background-image: url("img.jpg");
     background-size: cover;
-    top: 100%;
+    top: 1000%;
     transition: all .5s;
   }
 
